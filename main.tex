@@ -32,12 +32,35 @@ Forward scattering of  laser in the hydrodynamic and kinetic frameworks }
 \affiliation{CEA, DAM, DIF, F-91297 Arpajon, France}
 
 \begin{abstract}
- 
+We address the scattering of a high energy laser pulse on a   large wavelength acoustic turbulence of relevance for LMJ or NIF-class  experiments. 
+Starting with a plane wave and then addressing a spatially smoothed laser pulse, 
+a kinetic description is adopted and combined with a linearized  description of the laser propagation. The resulting dispersion relations, also derived in the hydrodynamical framework, present important kinetic  contributions to the growth of the Forward Brillouin instability.  
+Moreover, proof is made that the optical smoothing techniques  often used in high energy laser facilities are, for cold enough plasmas or in the multi ion species case, not enough to reach full control of the laser filamentation.
+\textcolor{red}{Comparison with experiments an simulations ?}
+The   derived dispersion relations  present unique tools for assessing the propagation quality and energy deposition region of high energy lasers pulses. They also underlines the importance of accounting correctly for kinetic effects, even in the millimeters and nanoseconds scales of many  ICF or high-energy-density experiments. 
 \end{abstract}
 
 \maketitle
 
 \section{Introduction}
+
+\begin{itemize}
+    \item high energy density physics is very cool very  fun and very interesting.
+    \item It requires the precise predictions of the  laser propagation  along with parametric instabilities and their coupling with the smoothing technics, routinely used in high energy class facilities.  
+    \item Forward instabilities such as filamentation, forward Brillouin  or plasma smoothing effects \cite[]{ POP_Grech_2006,PRL_Grech_2009} are vastly unexplored, and let's be honest, far more complicated than playing ping pong with positrons.
+\end{itemize}
+
+High energy class laser facilities such as LMJ or  NIF \cite[]{}  routinely bring matter under extreme conditions, not only of interest for inertial confinement fusion \cite{Lindl_2004,He_2007,Cavailler_2005}, but also for high energy astrophysics \cite{Drake_2012} and high energy density physics   \cite{Drake2006}. 
+Whether  the laser   serves as heat source or as a diagnostics, the accurate prediction of its propagation remain crucial for understanding  the experiment outputs. 
+
+
+
+We address in this publication the theoretical description of  the growth of an electromagnetic wave of wavevector and frequency close to the pump wave's and in a driven acoustic turbulence described in a kinetic framework. 
+Our stimulated forward Brillouin scattering (FSBS) model    evidences the crucial kinetic response of the plasma to the acoustic waves driven by the beating between the non-monochromatic pump and scattered beam. 
+Combining a linearize paraxial description of light, an asymptotic (in time) plasma  response and a simple model of Random Phase Plate (RPP) smoothed laser beam, we derived, after a bloody year of brain teasing torture, a predictive perturbative model that could pinpoint the significant growth and intensity pattern modification relevant for NIF or LMJ-class experiments. 
+Due to a fanatic stubbornness crowned by a confinement cutting off any super-computer entertainment, we could extract an effective spatial growth rate with its dependence on the scattering directions and position relative to the focal plane. 
+The last section gather our perspective and concluding remarks. 
+
 The SI unit system is used throughout this study and vectors are noted in bold symbols. 
 
 \section{Spatial growth of the  forward scattering of a plane wave}\label{sec:plane}
@@ -140,8 +163,8 @@ To leading order in  $\Im(k_{sx})/\vert \mathbf{k}_s\vert $ (where $\Im$ and $\R
 (b)  Kinetic, $\Re(k_{sx})$ \\
 \includegraphics[width=0.25\textwidth]{G_Te1keV_Ti300_3e14_3w_1e-1nc_Hp.png}&
 \includegraphics[width=0.25\textwidth]{k_Te1keV_Ti300_3e14_3w_1e-1nc_Hp.png}\\
-(d) Fluid, $-\Im(k_{sx}/k_0)$  &
-(e) Fluid, $\Re(k_{sx}/k_0)$  \\
+(c) Fluid, $-\Im(k_{sx}/k_0)$  &
+(d) Fluid, $\Re(k_{sx}/k_0)$  \\
 \includegraphics[width=0.25\textwidth]{Gf_Te1keV_Ti300_3e14_3w_1e-1nc_Hp.png}&
 \includegraphics[width=0.25\textwidth]{kf_Te1keV_Ti300_3e14_3w_1e-1nc_Hp.png}
 \end{tabular}
@@ -155,8 +178,8 @@ Kinetic (a,b) and fluid (c,d) resolution of Eq. \eqref{eq:dispe2poly} for  $I_0 
 (b)  Kinetic, $\Re(k_{sx})$ \\
 \includegraphics[width=0.25\textwidth]{G_Te700eV_Ti500_3e14_3w_1e-1nc_CH.png}&
 \includegraphics[width=0.25\textwidth]{k_Te700eV_Ti500_3e14_3w_1e-1nc_CH.png}\\
-(d) Fluid, $-\Im(k_{sx}/k_0)$  &
-(e) Fluid, $\Re(k_{sx}/k_0)$  \\
+(c) Fluid, $-\Im(k_{sx}/k_0)$  &
+(d) Fluid, $\Re(k_{sx}/k_0)$  \\
 \includegraphics[width=0.25\textwidth]{Gf_Te700eV_Ti500_3e14_3w_1e-1nc_CH.png}&
 \includegraphics[width=0.25\textwidth]{kf_Te700eV_Ti500_3e14_3w_1e-1nc_CH.png}
 \end{tabular}
@@ -169,8 +192,7 @@ Figures \ref{fig:dispe}(a-c)  illustrates the real and imaginary part of $k_{sx}
 Interestingly, the kinetic calculation allows to consider multiple ion plasmas such as CH  illustrated in Fig. \ref{fig:dispeCH}. In the fluid framework, we are usually constrained to use the averaged-ion approximation, which gives in the case of the forward Brillouin, qualitatively different behavior as the spatial growth peaks at $v_\phi/c_s \simeq 0.8$ and $1$ for (a) and (b) respectively. 
 
 For both Figs. \ref{fig:dispe} and \ref{fig:dispeCH},   from the kinetic framework ensues a  roughly twice smaller maximum forward Brillouin growth rate than in the fluid framework, although comparable results are obtained regarding the filamentation instability. 
-The growth of propagating ($\vert v_\phi\vert >0$) ion acoustic wave   is able to the scattered the pump wave and modify its spatial spectrum. As evidenced in Fig. \ref{fig:dispe}(a,d) and \ref{fig:dispeCH}(a,d) we expect a bro
-adening of the plane wave spatial spectrum  resulting in an cone angle of $k_s/k_0\sim 0.03-0.05$, corresponding to $\sim 2-3^o$.  
+The growth of propagating ($\vert v_\phi\vert >0$) ion acoustic wave   is able to the scattered the pump wave and modify its spatial spectrum. As evidenced in Fig. \ref{fig:dispe}(a,d) and \ref{fig:dispeCH}(a,d) we expect a broadening of the plane wave spatial spectrum  resulting in an cone angle of $k_s/k_0\sim 0.03-0.05$, corresponding to $\sim 2-3^o$.  
 
 The spatial (RPP) or temporal (SSD) of energetic laser pulses is commonly known to restrain the role of deleterious instabilities, such as the laser filamentation, on the propagation of the beam \cite[]{}. Indeed, as shown in this section, the most unstable wavelength, regarding the filamentation or the forward Brillouin instabilities, is of the order of ten   microns (for $\sim$ keV and 10\% critical density plasmas), thus smaller than the typical  speckle size   of a few microns   usually used in most energetic laser facilities.  
 Hence, the plane wave approximation used in obtaining Eq. \eqref{eq:max2} no longer holds and one expects a more stable pump propagation.
@@ -209,6 +231,38 @@ When plugging Eq. \eqref{eq:maxrpp} into \eqref{eq:fdrpp}, two sums will appear,
    \frac{\delta n_e }{n_{e0}}(\omega_s,\mathbf{k}_s) = -\alpha_{k/f}(v_\phi)A_k \frac{\delta n_0}{n_c} \frac{\omega_0^2}{2N^2}\sum_{ k_{1} } \sum_{ k_{2} }        \left[ \frac{e^{i\Phi_{k_1}-i\Phi_{k_2}} }{D_-(k_{1})}\frac{\delta n_e }{n_{e0}}(\omega_s,\mathbf{k}_s-\mathbf{k}_{1}+\mathbf{k}_{2}) +\frac{e^{-i\Phi_{k_1}+i\Phi_{k_2}}}{D_+(k_{1})} \frac{\delta n_e }{n_{e0}}(\omega_s,\mathbf{k}_s+\mathbf{k}_{1}-\mathbf{k}_{2}) \right] \, ,\label{eq:fddrpp} 
 \end{align}
  \end{widetext}
+ 
+ \begin{figure}
+\begin{tabular}{cc}
+(a) Kinetic, $-\Im(k_{sx}/k_0)$ &
+(b)  Kinetic, $\Re(k_{sx})$ \\
+\includegraphics[width=0.25\textwidth]{Grpp_Hp.png}&
+\includegraphics[width=0.25\textwidth]{krpp_Hp.png}\\
+(c) Fluid, $-\Im(k_{sx}/k_0)$  &
+(d) Fluid, $\Re(k_{sx}/k_0)$  \\
+\includegraphics[width=0.25\textwidth]{Gfrpp_Hp.png}&
+\includegraphics[width=0.25\textwidth]{kfrpp_Hp.png}
+\end{tabular}
+\caption{ \label{fig:disperpp}  
+Kinetic (a,b) and fluid (c,d) resolution of Eq.\eqref{eq:dispe2polyrpp} for  the same parameters than in Fig. \ref{fig:dispe} but with an RPP beam given by Eq. \eqref{eq:erpp} with $f=8$. 
+ }
+\end{figure}
+\begin{figure}
+\begin{tabular}{cc}
+(a) Kinetic, $-\Im(k_{sx}/k_0)$ &
+(b)  Kinetic, $\Re(k_{sx})$ \\
+\includegraphics[width=0.25\textwidth]{Grpp_CH_new.png}&
+\includegraphics[width=0.25\textwidth]{krpp_CH.png}\\
+(c) Fluid, $-\Im(k_{sx}/k_0)$  &
+(d) Fluid, $\Re(k_{sx}/k_0)$  \\
+\includegraphics[width=0.25\textwidth]{Gfrpp_CH_new.png}&
+\includegraphics[width=0.25\textwidth]{kfrpp_CH.png}
+\end{tabular}
+\caption{ \label{fig:dispeCHrpp}  
+Kinetic (a,b) and fluid (c,d) resolution ofEq.\eqref{eq:dispe2polyrpp} for  the same parameters than in Fig. \ref{fig:dispe} but with an RPP beam given by Eq. \eqref{eq:erpp} with $f=8$.  The value of the non-local correction [Eq. \eqref{eq:nl}], is obtained with the carbon parameters, corresponding to the smallest electron-ion mean-free-path. Use is made of the mean charge number, mean mass number   for calculating the sound speed and normalized Landau damping rate $c_s$ and $\gamma_0$.
+The insets  of (a) and (b) corresponds to lineouts at $v_\phi=0$. 
+ }
+\end{figure}
 In order to finalize the RPP dispersion relation, we will proceed to a statistical averaged using Eq. \eqref{eq:d}. On the right-hand-side, appears $\langle\exp(-i\Phi_{k_1}+i\Phi_{k_2})\delta n_e \rangle$ which can be recast as
 \begin{equation}
 \langle\exp(-i\Phi_{k_1}+i\Phi_{k_2})\delta n_e \rangle= \langle\exp(-i\Phi_{k_1}+i\Phi_{k_2}) \rangle\langle\delta n_e \rangle + \mathcal{C}\, , \label{eq:mthcalc}
@@ -243,12 +297,26 @@ A= \frac{1}{1-B}\left[ \left(\frac{\vert k_{s}\vert}{k_0}-\frac{1}{f}\right)^2-\
 B =\exp\left(\dfrac{-8k_m \vert k_{s}\vert c^2}{\alpha_{k/f}(v_\phi)A_k \omega_0^2\delta n_0/n_c  }\right)\, . \label{eq:dispe2polyrpp} 
 \end{align}
 The last term of the left hand side of  Eqs. \eqref{eq:dispe2poly} and \eqref{eq:dispe2polyrpp} holds the only difference between plane wave and RPP dispersion relations. 
-As expected, a Taylor development of $A$ to first order in $1/f$, \emph{i.e.} for a vanishing  RPP beam spectral width, Eqs.  \eqref{eq:dispe2poly} and \eqref{eq:dispe2polyrpp} co\"incide. 
+\textcolor{red}{
+Interestingly,  Eqs.   \eqref{eq:dispe2poly} and     \eqref{eq:dispe2polyrpp} co\"incide when  a Taylor development of $A$ to first order  in $1/f$ is made, \emph{i.e.} for a vanishing  RPP beam spectral width, $2k_m=k_0/f$. Moreover, care has been taken to verify that the solutions of the RPP dispersion relations with  $f = 50$ and the plasma and laser parameters of Fig. \ref{fig:dispe} yields  very similar results than the solution of Eq. \eqref{eq:dispe2poly}.
+}
+The spatial growth rate and longitudinal component of the wavevector of the forward scatter of an RPP beam are illustrated in  
+Figs. \ref{fig:disperpp} and \ref{fig:dispeCHrpp} with identical plasma and laser parameters than Figs.  \ref{fig:dispe} and \ref{fig:dispeCH}, respectively, but with $f=8$.
 
-Physically, when the speckle typical size, $f\lambda_0$, exceeds the most unstable filamentation wavelength ($\sim 10 \,\rm\mu m$ in Figs . \ref{fig:dispe} and  \ref{fig:dispeCH}), the pump wave is not smoothed enough, its spectral width not large enough, to ensure a good control its filamentation. 
+Regarding the H$^+$-plasma case (Fig. \ref{fig:disperpp}), one striking difference with the plane wave case  (Fig. \ref{fig:dispe}) is that the propagation of the smoothed beam seems to be stable regarding the filamentation instability, at $v_\phi=0$.
+Physically, the speckle typical size, $f\lambda_0$, remains smaller than the most unstable filamentation wavelength [$\sim 10 \,\rm\mu m$ in Figs . \ref{fig:dispe}(a)] thus preventing the transverse standing electrostatic wave to grow. The artificial increase of $f$ in excess of $\sim 25$, \emph{i.e.} when the speckle size starts to be comparable to the plane wave most unstable wavelength,  yields a finite value of the filamentation spatial growth rate. Rather than using facility-irrelevant $f$-numbers, the propagation of a laser may remains also filamentation-unstable, despite the use of spatial optical smoothing,  in  a multi-ion species plasmas such as the one illustrated in Fig. \ref{fig:dispeCHrpp}. In both the fluid and kinetic frameworks, a finite peak growth rate of $\sim 4\times 10^{-4}k_0 $ is observed around $\vert k_s\vert \sim 5\times 10^{-2}k_0$ [see insets of Figs. \ref{fig:dispeCHrpp}(a,c)]. A
+Low temperature plasmas may also be filamentation unstable to the  propagation of an RPP pulse, indeed the most unstable wavelength in these cases may be comparable or smaller to the speckle size \cite[]{}. \textcolor{red}{Experience de Julien Fuchs ? ...} 
+Fig....  presents...
+
+Figures \ref{fig:disperpp} and \ref{fig:dispeCHrpp} shows also significant differences compared to the propagation of a plane wave  regarding the forward Brillouin scattering.  
+The spatial growth rate is much more peaked around $v_\phi\simeq c_s$ (or $v_\phi\simeq 0.8c_s$ for  the kinetic CH case, Fig. \ref{fig:dispeCHrpp}(a))
+
+
+
+
 
 \section*{Acknowledgements}
-%We also admit the role of the confinement following the COVID19 plague for forcing us to take the time to finalize this theoretical work. This work has been done under the auspices of CEA-DAM. 
+We also admit the role of the confinement following the COVID19 plague for forcing us to take the time to finalize this theoretical work. This work has been done under the auspices of CEA-DAM. 
 % and the simulations were performed using HPC resources at TGCC/CCRT and CEA-DAM/TERA.
 \bibliography{biblio}
 \end{document}
