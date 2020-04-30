@@ -16,7 +16,8 @@
 \usepackage{ stmaryrd }
 \begin{document}
 
-\title{Comparison between the fluid and kinetic frameworks for   addressing the growth of the filamentation or forward Brillouin instabilities}
+\title{ 
+Forward scattering of  laser in the hydrodynamic and kinetic frameworks }
 \author{C. Ruyer}\email{charles.ruyer@cea.fr}
 \affiliation{CEA, DAM, DIF, F-91297 Arpajon, France}
 \author{M. Grech}
@@ -39,7 +40,7 @@
 \section{Introduction}
 The SI unit system is used throughout this study and vectors are noted in bold symbols. 
 
-\section{Spatial growth of a forward diffused wave}
+\section{Spatial growth of the  forward scattering of a plane wave}\label{sec:plane}
 \subsection{Fluid and kinetic general dispersion relation}
 The simplest way to obtain the growth of the forward scattering of a light wave propagating in a plasma consists in combining in combining the perturbed Maxwell equations with a linearized plasma response, which can be either kinetic or fluid.
 We aim at deriving and comparing in this section both frameworks.
@@ -91,9 +92,10 @@ Note that we have  applied the so-called non-local correction [Eq. \eqref{eq:nl}
 From the combination of  Eqs. \eqref{eq:max2} with \eqref{eq:fd}, 
 for $D_\pm= (\omega_s-\omega_0)^2 - \omega_{pe}^2 -( \mathbf{k}_s-\mathbf{k}_0) ^2c^2 $, ensues
 \begin{equation}\label{eq:dispe}
-    D_+D_- = -\omega_{0}^2\alpha_{k/f}A_k\frac{\delta n_0}{n_c} (D_++D_-) \, ,
+    D_+D_- = -\frac{\omega_{0}^2}{2}\alpha_{k/f}A_k\frac{\delta n_0}{n_c} (D_++D_-) \, ,
 \end{equation}
 with $\delta n_0/n_c = (n_{e0}/n_c) \epsilon_0E_0^2/(n_c T_e)$.
+Note that we neglected the terms in $\delta n_e(\omega_s \pm 2\omega_0)$.
 In the kinetic framework, the above equation corresponds to Eq. (36) of Ref. \cite[]{POF_Cohen_79} in the limit $\vert k_s \lambda_{Di} \vert \ll 1$. In the fluid framework, these equations were derived in Refs. \cite[]{Kruer,phd_Michel,phd-Grech} \textcolor{red}{(?)}.
 
 \subsection{Spatial growth of the filamentation and of the forward Brillouin instability}
@@ -104,14 +106,14 @@ D_\pm = -\mathbf{k}_s^2c^2\pm 2(\omega_s\omega_0 - \mathbf{k}_s\cdot\mathbf{k}_0
 Equation \eqref{eq:dispe} thus becomes 
 \begin{equation}\label{eq:dispe2} 
 (\omega_s\omega_0 - \mathbf{k}_s\cdot\mathbf{k}_0 c^2)^2
-=\frac{\mathbf{k}_s^2c^2}{4}\left( \mathbf{k}_s^2c^2 - 2\omega_{pe}^2\alpha_{k/f}(v_\phi)A_k\frac{\delta n_0}{n_c} \right) 
+=\frac{\mathbf{k}_s^2c^2}{4}\left( \mathbf{k}_s^2c^2 - \omega_{0}^2\alpha_{k/f}(v_\phi)A_k\frac{\delta n_0}{n_c} \right) 
 \, .
 \end{equation}
 
 The spatial growth of the filamentation instability may be recovered when $\omega_s$=0 and assuming a $\mathbf{k}_s = k_s \hat{\mathbf{x}} +i\Gamma_F \hat{\mathbf{y}}$ ($\hat{\mathbf{x}}=\mathbf{k}_0 /\vert \mathbf{k}_0 \vert $ and  $\hat{\mathbf{y}}$  are unity vectors in the $x$ and $y$ directions respectively), and 
 \begin{equation}\label{eq:gf} 
 \Gamma_F^2
-=\frac{\mathbf{k}_s^2c^2}{4}\left( 2\omega_{0}^2\alpha_{k/f}(0)A_k\frac{\delta n_0}{n_c}- \mathbf{k}_s^2c^2 \right) 
+=\frac{\mathbf{k}_s^2c^2}{4}\left( \omega_{0}^2\alpha_{k/f}(0)A_k\frac{\delta n_0}{n_c}- \mathbf{k}_s^2c^2 \right) 
 \, .
 \end{equation}
 Note that $\alpha_f(0)=1$ and $\alpha_k(0)=Z_iT_e/(Z_iT_e+T_i)$.
@@ -121,13 +123,13 @@ $ k_{sx}$ and $k_{sy}$ purely real and complex respectively. Equation \eqref{eq:
 \begin{equation}\label{eq:dispe3} 
 \left(\frac{v_\phi}{\eta c} - 
 \frac{ k_{sx}}{\vert \mathbf{k}_s\vert }\right)^2
-=\frac{1}{4} \left( \frac{\mathbf{k}_s^2}{k_0^2} - 2\alpha_{k/f}(v_\phi)A_k\frac{\delta n_0}{\eta^2n_c} \right) 
+=\frac{1}{4} \left( \frac{\mathbf{k}_s^2}{k_0^2} - \alpha_{k/f}(v_\phi)A_k\frac{\delta n_0}{\eta^2n_c} \right) 
 \, ,
 \end{equation}
 where $\eta=\sqrt{1-n_{e0}/n_c}$ is the refraction index.
 Hence, $u =  k_{sx}/\vert \mathbf{k}_s\vert $ is solution of the following second order polynomial equation, 
 \begin{equation}\label{eq:dispe2poly} 
-u^2 -2\frac{v_\phi}{\eta c}u +\frac{v_\phi^2}{\eta^2 c^2}-\frac{1}{4}\left( \frac{\mathbf{k}_s^2}{k_0^2} - 2\alpha_{k/f}(v_\phi)A_k\frac{\delta n_0}{\eta^2n_c} \right) =0 
+u^2 -2\frac{v_\phi}{\eta c}u +\frac{v_\phi^2}{\eta^2 c^2}-\frac{1}{4}\left( \frac{\mathbf{k}_s^2}{k_0^2} - \alpha_{k/f}(v_\phi)A_k\frac{\delta n_0}{\eta^2n_c} \right) =0 
 \, .
 \end{equation}
 To leading order in  $\Im(k_{sx})/\vert \mathbf{k}_s\vert $ (where $\Im$ and $\Re$ are the imaginary and real part of a complex), $\vert \mathbf{k}_s\vert$ and $v_\phi$ may be considered to be purely real.
@@ -164,9 +166,86 @@ Kinetic (a,b) and fluid (c,d) resolution of Eq. \eqref{eq:dispe2poly} for  $I_0 
 \end{figure}
 Figures \ref{fig:dispe}(a-c)  illustrates the real and imaginary part of $k_{sx}/k_0$, solution of Eq. \eqref{eq:dispe2poly} as a function of the phase speed and of the wavevector amplitude, in both the kinetic (a,b) and fluid framework (c,d). The filamentation limit is recovered at $v_\phi=0$ and care has been taken to verify that, when $T_i\ll Z_iT_e$, both frameworks con\"incide. Moreover, in both calculations, $\Re[k_{sx}(v_\phi=0)]$ is vanishing as expected from the filamentation instability. As $v_\phi$ increases, one starts to enter in the forward Brillouin instability domain which peaks, for the mono-ion species case of Fig. \ref{fig:dispe}, around $(\vert k_s\vert/k_0, v_\phi/c_s) \simeq(0.03,1)$. Additionally, in both cases, the forward Brillouin spatial maximum  growth dominates the filamentation one. In the fluid framework, a much more peaked growth spectrum around  $ v_\phi/c_s\sim 1 $ is evidenced compared to the kinetic calculations. 
 
-Interestingly, the kinetic calculation allows to consider multiple ion plasmas such as CH  illustrated in Fig. \ref{fig:dispeCH}. In the fluid framework, we are usually constrained to use the averaged-ion approximation, which gives in the case of the fourwad Brillouin, qualitatively different behavior as the spatial growth peaks at $v_\phi/c_s \simeq 0.75$ and $1$ for (a) and (b) respectively. 
+Interestingly, the kinetic calculation allows to consider multiple ion plasmas such as CH  illustrated in Fig. \ref{fig:dispeCH}. In the fluid framework, we are usually constrained to use the averaged-ion approximation, which gives in the case of the forward Brillouin, qualitatively different behavior as the spatial growth peaks at $v_\phi/c_s \simeq 0.8$ and $1$ for (a) and (b) respectively. 
 
-For both Figs. \ref{fig:dispe} and \ref{fig:dispeCH}, from the kinetic framework ensues a  roughly twice smaller maximum growth rate than in the fluid framework. 
+For both Figs. \ref{fig:dispe} and \ref{fig:dispeCH},   from the kinetic framework ensues a  roughly twice smaller maximum forward Brillouin growth rate than in the fluid framework, although comparable results are obtained regarding the filamentation instability. 
+The growth of propagating ($\vert v_\phi\vert >0$) ion acoustic wave   is able to the scattered the pump wave and modify its spatial spectrum. As evidenced in Fig. \ref{fig:dispe}(a,d) and \ref{fig:dispeCH}(a,d) we expect a bro
+adening of the plane wave spatial spectrum  resulting in an cone angle of $k_s/k_0\sim 0.03-0.05$, corresponding to $\sim 2-3^o$.  
+
+The spatial (RPP) or temporal (SSD) of energetic laser pulses is commonly known to restrain the role of deleterious instabilities, such as the laser filamentation, on the propagation of the beam \cite[]{}. Indeed, as shown in this section, the most unstable wavelength, regarding the filamentation or the forward Brillouin instabilities, is of the order of ten   microns (for $\sim$ keV and 10\% critical density plasmas), thus smaller than the typical  speckle size   of a few microns   usually used in most energetic laser facilities.  
+Hence, the plane wave approximation used in obtaining Eq. \eqref{eq:max2} no longer holds and one expects a more stable pump propagation.
+Although, extensively studied in the fluid framework by mean of simulation tools \cite[]{}, to the best of our knowledge, no analytical attempts were made to estimate the growth of the forward scattering of an RPP pulse, especially in the kinetic framework. 
+We propose in next section to adapt the above analytical plane wave dispersion relations  to the propagation of energetic RPP pulse.
+
+\section{Forward scattering of a spatially smoothed laser pulse}
+The  beam model adopted here has been introduced in  Refs. \cite[]{POF_Schmitt_88,POF_Rose_93} and presents an electric field following
+ \begin{align}
+E_0(t,\mathbf{r})  = \frac{E_0}{N} \sum_{n,\vert k_{\perp}\vert<k_m }  \cos(k_0x - \omega_0t +\mathbf{k}_\perp \cdot \mathbf{r}_\perp +\Phi_{\mathbf{k}_\perp})\, , \label{eq:erpp}
+ \end{align}
+ where  $N$ is the number of diffracting elements and the phases $\Phi_{k_y}$ are  independent random variables taking the values $0$ or $\pi$ with equal probability.
+ For simplicity, we will assume a square phase plate that verifies $k_{\perp}(n) = n2k_m/N$ with $n$ an integer that verifies $n\in \llbracket - N/2 ,N/2 \rrbracket$ and with $k_m = k_0/(2f)$. 
+ Under these conditions, and for $\langle u\rangle$ representing the statistical average of $u$,  we note   that,
+ \begin{equation}\label{eq:d}
+ \langle e^{i\Phi_{k_1}+i\Phi_{k_2}}\rangle=\delta(k_1-k_2) \, .
+ \end{equation}
+
+ \begin{widetext}
+We will now follow the procedure introduced in Sec. \ref{sec:plane} while replacing the plane pump wave by the fields given by Eq. \eqref{eq:erpp}. Hence, we will start by writing the RPP electric field in Fourier space and enveloped around the laser frequency and wavevectors $\omega_0$ and $k_0$,
+\begin{align}
+E_0(\omega,\mathbf{k}) = \frac{E_0}{2N} \sum_{\ k_{\perp} }[ e^{i\Phi_{k_\perp}}\delta(\omega-\omega_0, \mathbf{k}-\mathbf{k}_\perp)    + e^{-i\Phi_{k_\perp}}\delta(\omega+\omega_0, \mathbf{k}+\mathbf{k}_\perp) ]
+\, , \label{eq:erppf}
+\end{align}
+ where $\mathbf{k}_\perp= k_0\hat{\mathbf{x}} +k_\perp \hat{\mathbf{y}}$ and the sum runs over $k_\perp$ for $\vert k_\perp\vert  <k_m$.
+ Combined with the perturbed Maxwell equations [Eq. \eqref{eq:max1}], we obtain
+ \begin{align}
+    (\omega_d^2 - \omega_{pe}^2 -\mathbf{k}_d^2c^2)\delta E(\omega_d,\mathbf{k}_d) = \frac{\omega_0^2}{2N} E_0 \sum_{\ k_{\perp} }   \left[e^{i\Phi_{k_\perp}}\frac{\delta n_e }{n_c}(\omega_d-\omega_0, \mathbf{k}_d-\mathbf{k}_\perp) +e^{-i\Phi_{k_\perp}}\frac{\delta n_e }{n_c}(\omega_d+\omega_0, \mathbf{k}_d+\mathbf{k}_\perp) \right] \, .\label{eq:maxrpp}
+\end{align}
+Likewise, the plasma linear response, either kinetic or fluid, involves a convolution product between $E_0(\omega_0,\mathbf{k}_\perp)$ and $\delta E(\omega_d,\mathbf{k}_d)$ which yields,
+\begin{align}
+   \frac{\delta n_e }{n_{e0}}(\omega_s,\mathbf{k}_s) = -\alpha_{k/f}(v_\phi) \frac{A_k\epsilon_0 E_0}{Nn_c T_e} \sum_{\ k_{\perp} }     \left[e^{i\Phi_{k_\perp}}\delta E(\omega_s-\omega_0, \mathbf{k}_s-\mathbf{k}_{\perp}) +e^{-i\Phi_{k_\perp}}\delta E(\omega_s+\omega_0, \mathbf{k}_s+\mathbf{k}_{\perp}) \right] \, ,\label{eq:fdrpp} 
+\end{align}
+When plugging Eq. \eqref{eq:maxrpp} into \eqref{eq:fdrpp}, two sums will appear, noted with two independent index, $k_1$ and $k_2$. Hence, as when  deriving Eq. \eqref{eq:dispe}, we will neglect the terms in $\delta n_e(\omega_s\pm 2\omega_0)$ that are considered too far from resonance. With $D_\pm(k_{1})= (\omega_s-\omega_0)^2 - \omega_{pe}^2 -( k_{sx}-k_0) ^2c^2 -( k_{sy}-k_{1}) ^2c^2$ and $\mathbf{k}_{1,2}= k_0\hat{\mathbf{x}} +k_{1,2} \hat{\mathbf{y}}$, we obtain
+\begin{align}
+   \frac{\delta n_e }{n_{e0}}(\omega_s,\mathbf{k}_s) = -\alpha_{k/f}(v_\phi)A_k \frac{\delta n_0}{n_c} \frac{\omega_0^2}{2N^2}\sum_{ k_{1} } \sum_{ k_{2} }        \left[ \frac{e^{i\Phi_{k_1}-i\Phi_{k_2}} }{D_-(k_{1})}\frac{\delta n_e }{n_{e0}}(\omega_s,\mathbf{k}_s-\mathbf{k}_{1}+\mathbf{k}_{2}) +\frac{e^{-i\Phi_{k_1}+i\Phi_{k_2}}}{D_+(k_{1})} \frac{\delta n_e }{n_{e0}}(\omega_s,\mathbf{k}_s+\mathbf{k}_{1}-\mathbf{k}_{2}) \right] \, ,\label{eq:fddrpp} 
+\end{align}
+ \end{widetext}
+In order to finalize the RPP dispersion relation, we will proceed to a statistical averaged using Eq. \eqref{eq:d}. On the right-hand-side, appears $\langle\exp(-i\Phi_{k_1}+i\Phi_{k_2})\delta n_e \rangle$ which can be recast as
+\begin{equation}
+\langle\exp(-i\Phi_{k_1}+i\Phi_{k_2})\delta n_e \rangle= \langle\exp(-i\Phi_{k_1}+i\Phi_{k_2}) \rangle\langle\delta n_e \rangle + \mathcal{C}\, , \label{eq:mthcalc}
+\end{equation}
+where $\mathcal{C}$ is the correlations   between  \mbox{$\exp(-i\Phi_{k_1}+i\Phi_{k_2})$} and $\delta n_e$. The combination of Eq. \eqref{eq:fddrpp} with \eqref{eq:mthcalc} shows that $\mathcal{C}\propto \delta n_0/n_c$ and therefore, to leading order in $\delta n_0/n_c$, $\mathcal{C}$ may  be neglected when  averaging   Eq. \eqref{eq:fddrpp} giving
+\begin{align}
+  1= -\alpha_{k/f}(v_\phi)A_k \frac{\delta n_0}{n_c} \frac{\omega_0^2}{2N}\sum_{ k_{1} }        \left[ \frac{1 }{D_-(k_{1})} +\frac{1}{D_+(k_{1})} \right] \, .\label{eq:disperpp} 
+\end{align}
+Provided the phase plate has a sufficient number of elements (\emph{i.e.} $N$ is large enough), we shall replace the discrete sum by a continuous one. To leading order 
+in  $\omega_s\ll\omega_0$, 
+\begin{equation}\label{eq:dpmk1}
+D_\pm(k_1) \simeq -\mathbf{k}_s^2c^2\pm 2(\omega_s\omega_0 - k_{sx}k_0 c^2-k_{sy} k_1 c^2) \, , 
+\end{equation} 
+so that,
+\begin{align}
+ \frac{1}{N} \sum_{ k_{1} }  \frac{1 }{D_\pm(k_{1})}  \simeq \frac{1}{2k_m} \int_{ -k_m }^{ k_m }       \frac{dk_1 }{D_\pm(k_{1})}  \, , \nonumber\\
+ \simeq \frac{\mp1}{4k_mk_{sy}c^2} \ln\left[
+ \frac{ -\mathbf{k}_s^2c^2\pm 2(\omega_s\omega_0 - k_{sx}k_0 c^2-k_{sy} k_m c^2)}{ -\mathbf{k}_s^2c^2\pm 2(\omega_s\omega_0 - k_{sx}k_0 c^2+k_{sy} k_m c^2)} \right] \, .\label{eq:sumint} 
+\end{align}
+The combination with Eq. \eqref{eq:disperpp} yields
+
+\begin{align}
+ \frac{-8k_mk_{sy}c^2}{\alpha_{k/f}(v_\phi)A_k \omega_0^2\delta n_0/n_c  } \nonumber\\
+ \simeq  \ln\left[
+ \frac{ (\mathbf{k}_s^2c^2-k_{sy} k_m c^2)^2 -4(\omega_s\omega_0 - k_{sx}k_0 c^2)^2}{ (\mathbf{k}_s^2c^2+k_{sy} k_m c^2)^2 -4(\omega_s\omega_0 - k_{sx}k_0 c^2)^2} \right] \, .\label{eq:disperpp2} 
+\end{align}
+In order to express the complex $k_{sx}$ as a function of the reals $v_\phi=\omega_s/\vert \mathbf{k}_s\vert $ and $\vert \mathbf{k}_s\vert $ (provided  $\vert k_{sx}\vert \ll \vert \mathbf{k}_s\vert$), we may use $\vert k_{sy} \vert  \simeq \vert \mathbf{k}_s\vert$, and divide both numerator and denominator of the logarithm argument by $k_0^2\vert \mathbf{k}_s^2\vert c^4$, which yields the following second order polynomial equation in $u =  k_{sx}/\vert \mathbf{k}_s\vert$,
+\begin{align}
+u^2 -2\frac{v_\phi}{\eta c}u +\frac{v_\phi^2}{\eta^2 c^2}-\frac{1}{4}A =0 
+\, , \nonumber\\
+A= \frac{1}{1-B}\left[ \left(\frac{\vert k_{s}\vert}{k_0}-\frac{1}{f}\right)^2-\left(\frac{\vert k_{s}\vert}{k_0}+\frac{1}{f}\right)^2B  \right]\, , \nonumber \\ 
+B =\exp\left(\dfrac{-8k_m \vert k_{s}\vert c^2}{\alpha_{k/f}(v_\phi)A_k \omega_0^2\delta n_0/n_c  }\right)\, . \label{eq:dispe2polyrpp} 
+\end{align}
+The last term of the left hand side of  Eqs. \eqref{eq:dispe2poly} and \eqref{eq:dispe2polyrpp} holds the only difference between plane wave and RPP dispersion relations. 
+As expected, a Taylor development of $A$ to first order in $1/f$, \emph{i.e.} for a vanishing  RPP beam spectral width, Eqs.  \eqref{eq:dispe2poly} and \eqref{eq:dispe2polyrpp} co\"incide. 
+
+Physically, when the speckle typical size, $f\lambda_0$, exceeds the most unstable filamentation wavelength ($\sim 10 \,\rm\mu m$ in Figs . \ref{fig:dispe} and  \ref{fig:dispeCH}), the pump wave is not smoothed enough, its spectral width not large enough, to ensure a good control its filamentation. 
 
 \section*{Acknowledgements}
 %We also admit the role of the confinement following the COVID19 plague for forcing us to take the time to finalize this theoretical work. This work has been done under the auspices of CEA-DAM. 
