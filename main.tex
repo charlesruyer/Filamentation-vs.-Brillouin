@@ -17,6 +17,12 @@
 \usepackage{ stmaryrd }
 \usepackage[utf8]{inputenc}
 \usepackage[english]{babel}
+\usepackage{auto-pst-pdf} 
+
+
+	\usepackage{epsf} 
+
+
 
 \def\tc{\textcolor{red}}
 \def\tg{\textcolor{green}}
@@ -30,14 +36,14 @@ Forward scattering of a plane wave and of a spatially smoothed laser pulse  in t
 \author{A. Debayle}
 \affiliation{CEA, DAM, DIF, F-91297 Arpajon, France}
 \affiliation{Universit\'e Paris-Saclay, CEA, LMCE, 91680 Bruy\`eres-le-Ch\^atel, France}
-\author{M. Casanova}
-\affiliation{CEA, DAM, DIF, F-91297 Arpajon, France}
 \author{P. Loiseau}
 \author{P. E. Masson-Laborde}
 \affiliation{CEA, DAM, DIF, F-91297 Arpajon, France}
 \affiliation{Universit\'e Paris-Saclay, CEA, LMCE, 91680 Bruy\`eres-le-Ch\^atel, France}
 \author{J. Fuchs}
 \affiliation{LULI - CNRS, CEA, UPMC Univ Paris 06: Sorbonne Universit\'e, Ecole Polytechnique, Institut Polytechnique de Paris - F-91128 Palaiseau Cedex, France}
+\author{M. Casanova}
+\affiliation{CEA, DAM, DIF, F-91297 Arpajon, France}
 \author{J. R. Marqu\`{e}s}
 \affiliation{LULI - CNRS, CEA, UPMC Univ Paris 06: Sorbonne Universit\'e, Ecole Polytechnique, Institut Polytechnique de Paris - F-91128 Palaiseau Cedex, France}
 \author{L. Romagnani}
@@ -83,7 +89,7 @@ To this end, a large effort is made for understanding and mitigating the wave mi
 POP_Bezzerides_1998,PRL_Young_1998,POP_Ruyer_2020} and forward Brillouin.
 To date, only stimulated backward Raman or Brillouin instabilities~\cite{POP_Liu_2009,hao_2013},  cross beam energy transfer \cite{hao_2016}, two plasmon decay \cite[]{Dubois_1995,Russell_2001} or collective scattering  \cite[]{PRL_Neuville_2016,PRL_Depierreux_2016}, are identified as critical issues in ICF, and remain active area of research. However, the small mitigation of cross beam energy transfer~\cite{PRL_Neuville_2016cbet} and backward Brillouin scattering by laser smoothing techniques may presage similar tendencies concerning the forward scattering. % and the laser beam filamentation. 
 The latter can significantly alter the laser beam propagation by increasing the beam opening angle, thereby explaining the small laser beam transmission measured in some experiments~\cite{POP_Rousseaux_2015}.
-
+ 
 To date, hydrodynamic codes remain the main tools to describe most of ICF experiments, due to their relatively affordable numerical cost. A first class of hydrodynamic codes, able to resolve the speckle scale structure, can describe different wave-mixing processes on a reduced plasma using regular meshes~\cite{Berger_1995,Still_2006,Loiseau_2006, Huller_2006}. However, the Landau damping rate which is the main parameter of wave-mixing processes in plasma, is reduced to an \emph{ad hoc} correction only valid in weakly-damped single-ion species plasma. Moreover, the non-local electron heat transport, thought to be important between each speckles during the heating phase~\cite[]{POP_Batishchev_2002,POP_Feugeas_2008}, is usually neglected. The second class of hydrodynamic codes, able to describe full scale ICF experiments on unstructured meshes, further neglects the speckle scale structure. The laser beam propagation is reduced to a ray-tracing scheme in which most of wave mixing processes are omitted. Recently, a ray-tracing algorithm has been proposed~\cite{POP_Debayle_2019} to self-consistently describe the cross beam energy transfer, the Raman and Brillouin backward scatterings. In principle, adding the convective growth of the filamentation and the forward Brillouin scattering are straightforward. However, this scheme neglects the speckle scale structure and assumes linear convective rates of wave-mixing processes based on a plane wave electromagnetic field. Alas, the resulting micron-scale speckle dynamics that interweaves with the wave mixing processes, brings further complexity to the theoretical and numerical analysis \cite[]{POP_Duluc_2019}. Building a self-consistent set of equations, adapted for Lagrangian hydrodynamic codes, that properly encompasses the filamentation instability, forward Brillouin  scattering and plasma smoothing effects \cite[]{phd-Grech,POP_Grech_2006,PRL_Grech_2009}, remains a challenging task.
 %
 %\emph{ad hoc} corrections or otherwise simply  omit, kinetic-based processes such as the particle trapping and subsequent wave-breaking \cite[]{POP_Benisti_2008,POP_Berger_2013}, two plasmon decay \cite[]{Dubois_1995,Russell_2001} or non-local thermal diffusion \cite[]{POP_Schurtz_2000,PRL_Froula_2007}, affecting the associated laser energy deposition. 
@@ -92,8 +98,8 @@ To date, hydrodynamic codes remain the main tools to describe most of ICF experi
 
 This publication ambitions are to convey new tools 
 able to address  the spatial growth of an electromagnetic scattered wave of wavevector and frequency close to the RPP pulse's and embedded in driven acoustic density fluctuations.
-We first derive both the kinetic and fluid forward scattering of a plane wave, limiting the study to the spatial  growth of  stimulated forward Brillouin scattering (FSBS) and the filamentation instabilities and pinpoint the importance of accounting for the kinetic plasma response for understanding quantitatively the scattering growth.
-From  a simple model of RPP smoothed laser beam ensues our dispersion relations  able to predict the growth of the forward scatter relevant for high energy laser experiments. 
+We first \tc{recall} both the kinetic and fluid \tc{derivation of the} forward scattering of a plane wave, limiting the study to the spatial  growth of  stimulated forward Brillouin scattering (FSBS) and the filamentation instabilities and pinpoint the importance of accounting for the kinetic plasma response for understanding quantitatively the scattering growth.
+From  a simple model of RPP smoothed laser beam ensues our dispersion relations  able to predict the growth of the forward scatter relevant for high energy laser experiments \tc{and allowing to confront the predictability of fluid-based and kinetic simulations.} 
 %\textcolor{red}{Dedicated "particle-in-cell" (PIC) simulations allows to validate our predictions and underline the importance of accounting for the laser smoothing in order to understand the forward Brillouin growth. Moreover, a
 A comparison with dedicated hydrodynamic simulations and with an experiment conducted at the LULI facility validate our predictions.
 %} 
@@ -126,12 +132,12 @@ reads
 \begin{align}
    \frac{\delta n_e }{n_{e0}}(\omega_s,\mathbf{k}_s) = \frac{-\kappa\mathbf{k}^2c_s^2}{ \mathbf{k}_s^2c_s^2-\omega_s^2 -2i\omega_s \nu} \frac{A_k\epsilon_0 E_0}{n_c T_e}\times \nonumber\\ \left[\delta E(\omega_s-\omega_0, \mathbf{k}_s-\mathbf{k}_0) +\delta E(\omega_s+\omega_0, \mathbf{k}_s+\mathbf{k}_0) \right] \, .\label{eq:fluid}
 \end{align}
-Here, $\kappa = Z_iT_e/m_ic_s^2$,  $c_s\simeq [(Z_iT_e+3 T_i)/m_i]^{1/2}$, $\nu=\vert\mathbf{k}_s\vert \gamma_0 c_s$ and $A_k$, are respectively  the sound speed, the Landau damping frequency and a non-local thermal correction to the ponderomotive force\cite[]{Bychenkov_2000}, 
+Here, $\kappa = Z_iT_e/m_ic_s^2$,  $c_s\simeq [(Z_iT_e+3 T_i)/m_i]^{1/2}$, $\nu=\vert\mathbf{k}_s\vert \gamma_0 c_s$ and $A_k$, are respectively  the sound speed, the Landau damping frequency and a non-local thermal correction to the ponderomotive force \tc{\cite[]{POP_Kaiser_1993,Bychenkov_2000}}, 
 \begin{align}
      A_k(u)   &= \frac{1}{2} +Z_i\left( \frac{0.074}{u^2}+ \frac{0.88}{u^{4/7}} + \frac{2.54}{1+5.5u^2} \right) \, ,\nonumber \\ 
      u &=\vert \mathbf{k}_s \vert\lambda_\mathrm{mfp} \sqrt{Z_i}\label{eq:nl}\, .
 \end{align}
-We also made use of $T_{e/i}$, $m_{e/i}$ $Z_i$ and $\lambda_\mathrm{mfp}$, the electron/ion temperature and mass, ion charge number and electron mean-free-path, respectively. For a multi-ion species plasma, the smallest mean-free-path among the ion species is used to compute $A_k$.  
+We also made use of $T_{e/i}$, $m_{e/i}$ $Z_i$ and $\lambda_\mathrm{mfp}$, the electron/ion temperature and mass, ion charge number and electron mean-free-path, respectively. For a multi-ion species plasma, the smallest mean-free-path among the ion species is used to compute $A_k$ \tc{ and the value of $c_s$ is computed on the mean-ion parameters ($Z_i$ , $A_i$ and $T_i$). Hence, especially in the mutli-ion species case, $c_s$ does not necessarily coincide with the solution of the acoustic dispersion relations that may present one fast and one slow mode in the multi ion species case  \cite[]{POF_Fried_71,POP_Williams_95}.}  
 The correction of  Ref. \cite[]{Bychenkov_2000} requires to account for the collisional acoustic damping rate which is negligible for the plasma parameters addressed here ($T_e\gtrsim 1\,\rm keV$, $n_e\le 10^{21}\,\rm cm^{-3}$ and $I_0\le 10^{15}\rm W/cm^{2}$) or irrelevant (as for the filamentation instability, Secs.  \ref{sec:filam} and \ref{sec:xp}).
 Note that, for the parameters explored in this study, the non-local correction remains non negligible and therefore essential to obtain realistic predictions \cite[]{PRL_Epperlein_1990,POP_Berger_2005}.  
 
@@ -171,7 +177,7 @@ Both Eqs. \eqref{eq:fluid} and  \eqref{eq:drake} recast as:
 \begin{align}
    \frac{\delta n_e }{n_{e0}}(\omega_s,\mathbf{k}_s) = -\alpha_{k/f}(v_\phi) \frac{A_k\epsilon_0 E_0}{n_c T_e}\times \nonumber\\ \left[\delta E(\omega_s-\omega_0, \mathbf{k}_s-\mathbf{k}_0) +\delta E(\omega_s+\omega_0, \mathbf{k}_s+\mathbf{k}_0) \right] \, ,\label{eq:fd}
 \end{align}
-Note that we have  applied the non-local correction [Eq. \eqref{eq:nl}] in the kinetic framework, as there is, to the best of our knowledge,  no better simple alternative. Originally derived in the fluid framework, its proper kinetic counterpart would require to start from Refs. \cite[]{POP_Epperlein_94,POP_Bychenkov_1998} and is out of the scope of the present study. As the $A_k$-factor is relevant in the fluid framework, choice has been made to include it in the kinetic formalism for comparison purposes. Yet, its use is questionable regarding the forward Brillouin predictions.
+Note that we have  applied the non-local correction [Eq. \eqref{eq:nl}] in the kinetic framework, as there is, to the best of our knowledge,  no better simple alternative. Originally derived in the fluid framework, its proper kinetic counterpart would require to \tc{replace the ion fluid response of Ref. \cite[]{POP_Berger_2005} by a kinetic one in order to model Coulomb collisions effects in multi-ion species plasmas \cite[]{POP_Berger_2005b} or to start from Refs. \cite[]{POP_Epperlein_94,POP_Bychenkov_1998}, such analysis } is out of the scope of the present study. As the $A_k$-factor is relevant in the fluid framework, choice has been made to include it in the kinetic formalism for comparison purposes. Yet, its use is questionable regarding the forward Brillouin predictions.
 
 From the combination of  Eqs. \eqref{eq:max2} with \eqref{eq:fd}, 
 for $D_\pm= (\omega_s\pm \omega_0)^2 - \omega_{pe}^2 -( \mathbf{k}_s\pm \mathbf{k}_0) ^2c^2 $, ensues
@@ -183,7 +189,25 @@ Note that we neglected the terms in $\delta n_e(\omega_s \pm 2\omega_0)$.
 In the kinetic framework, the above equation corresponds to Eq. (36) of Ref. \cite[]{POF_Cohen_79} in the limit $\vert k_s \lambda_{Di} \vert \ll 1$. In the fluid framework, similar equations were derived in Refs. \cite[]{Kruer,phd_Michel,phd-Grech}.
 
 \subsection{Spatial growth of the filamentation and of the forward Brillouin instability}
-Hence,  making use of $\omega_0^2=\omega_{pe}^2 +k_0^2c^2$, we may simplify $D_\pm$ to leading order in $\omega_s\ll\omega_0$, giving 
+
+\begin{figure}
+\begin{tabular}{cc}
+(a) Kinetic, $\Gamma/k_0$ &
+(b)  Kinetic, $\Re(k_{sx}/k_0)$ \\
+%\includegraphics[width=0.24\textwidth]{1a.png}&
+%\includegraphics[width=0.24\textwidth]{1b.png}\\
+\includegraphics[width=0.24\textwidth]{Fig1a.eps}&
+\includegraphics[width=0.24\textwidth]{Fig1b.eps}\\
+(c) Fluid, $\Gamma/k_0$  &
+(d) Fluid, $\Re(k_{sx}/k_0)$  \\
+\includegraphics[width=0.24\textwidth]{Fig1c.eps}&
+\includegraphics[width=0.24\textwidth]{Fig1d.eps}
+\end{tabular}
+\caption{ \label{fig:dispe}  
+Kinetic (a,b) and fluid (c,d) resolution of Eq. \eqref{eq:dispe2poly} for  $I_0 = 6\cdot 10^{14}\, \rm W.cm^{-2}$, $2\pi/k_0=0.35 \,\rm\mu m$, $T_e =1\,\rm  keV$, $ T_i=300\,  \rm eV$ in a H$^+$ and $n_{e0}=0.1n_c$.
+ }
+\end{figure}
+Hence,  making use of $\omega_0^2=\omega_{pe}^2 +k_0^2c^2$, we may simplify $D_\pm$ to leading order in $\omega_s\ll\omega_0$, as done in Ref. \cite[]{POP_Kaiser_1993}, giving  
 \begin{equation}\label{eq:dpm}
 D_\pm = -\mathbf{k}_s^2c^2\pm 2(\omega_s\omega_0 - \mathbf{k}_s\cdot\mathbf{k}_0 c^2) \, .
 \end{equation} 
@@ -202,7 +226,7 @@ The spatial growth of the filamentation instability may be recovered when $\omeg
 \end{equation}
 Note that for a single ion species,  $\alpha_f(0)=1$ and $\alpha_k(0)= Z_iT_e/T_i/(1+Z_iT_e/T_i)$ so that the kinetic and fluid frameworks coincide in the limit $Z_iT_e/T_i\gg 1$.
 
-As for the forward Brillouin scattering,  corresponding to the limit $1/D_-\gg1/D_+$, non vanishing acoustic wave frequencies are obtained with  phase speeds of the order of the sound speed. We propose to address the spatial growth of both the filamentation and forward Brillouin instabilities  by solving Eq. \eqref{eq:dispe2} for  $\mathbf{k}_s = k_{sx} \hat{\mathbf{x}} +k_{sy} \hat{\mathbf{y}}$, and assuming 
+As for the \tc{backward} Brillouin scattering  corresponding to the limit $1/D_-\gg1/D_+$, non vanishing acoustic wave frequencies are obtained with  phase speeds of the order of the sound speed. We propose to address the spatial growth of both the filamentation and forward Brillouin instabilities  by solving Eq. \eqref{eq:dispe2} for  $\mathbf{k}_s = k_{sx} \hat{\mathbf{x}} +k_{sy} \hat{\mathbf{y}}$, and assuming 
 $ k_{sy}$ and $k_{sx}$ purely real and complex  respectively. Equation \eqref{eq:dispe2} then becomes 
 \begin{equation}\label{eq:dispe3} 
 \left(\frac{v_\phi}{\eta c} - 
@@ -222,37 +246,31 @@ u^2 -2\frac{v_\phi}{\eta c}u +\frac{v_\phi^2}{\eta^2 c^2}-\frac{1}{4}\left( \fra
 \begin{tabular}{cc}
 (a) Kinetic, $\Gamma/k_0$ &
 (b)  Kinetic, $\Re(k_{sx}/k_0)$ \\
-\includegraphics[width=0.24\textwidth]{1a.png}&
-\includegraphics[width=0.24\textwidth]{1b.png}\\
+%\includegraphics[width=0.24\textwidth]{2a.png}&
+%\includegraphics[width=0.24\textwidth]{2b.png}\\
+\includegraphics[width=0.24\textwidth]{Fig2a.eps}&
+\includegraphics[width=0.24\textwidth]{Fig2b.eps}\\
 (c) Fluid, $\Gamma/k_0$  &
 (d) Fluid, $\Re(k_{sx}/k_0)$  \\
-\includegraphics[width=0.24\textwidth]{1c.png}&
-\includegraphics[width=0.24\textwidth]{1d.png}
-\end{tabular}
-\caption{ \label{fig:dispe}  
-Kinetic (a,b) and fluid (c,d) resolution of Eq. \eqref{eq:dispe2poly} for  $I_0 = 6\cdot 10^{14}\, \rm W.cm^{-2}$, $2\pi/k_0=0.35 \,\rm\mu m$, $T_e =1\,\rm  keV$, $ T_i=300\,  \rm eV$ in a H$^+$ and $n_{e0}=0.1n_c$.
- }
-\end{figure}
-\begin{figure}
-\begin{tabular}{cc}
-(a) Kinetic, $\Gamma/k_0$ &
-(b)  Kinetic, $\Re(k_{sx}/k_0)$ \\
-\includegraphics[width=0.24\textwidth]{2a.png}&
-\includegraphics[width=0.24\textwidth]{2b.png}\\
-(c) Fluid, $\Gamma/k_0$  &
-(d) Fluid, $\Re(k_{sx}/k_0)$  \\
-\includegraphics[width=0.24\textwidth]{2c.png}&
-\includegraphics[width=0.24\textwidth]{2d.png}
+%\includegraphics[width=0.24\textwidth]{2c.png}&
+%\includegraphics[width=0.24\textwidth]{2d.png}
+\includegraphics[width=0.24\textwidth]{Fig2c.eps}&
+\includegraphics[width=0.24\textwidth]{Fig2d.eps}
 \end{tabular}
 \caption{ \label{fig:dispeCH}  
 Kinetic (a,b) and fluid (c,d) resolution of Eq. \eqref{eq:dispe2poly} for  $I_0 = 6\cdot 10^{14}\, \rm W.cm^{-2}$, $2\pi/k_0=0.35 \,\rm\mu m$, for a CH plasma with $n_c=n_H$, $T_e =700\,\rm  eV$, $T_C=T_H =500\,  \rm eV$ and $n_{e0}=0.1n_c$. The value of the non-local correction [Eq. \eqref{eq:nl}], is obtained with the carbon parameters, corresponding to the smallest electron-ion mean-free-path. Use is made of the mean charge number, mean mass number   for calculating the sound speed and normalized Landau damping rate $c_s$ and $\gamma_0$.
  }
 \end{figure}
 Figures \ref{fig:dispe}(a-d) display  $\Re(k_{sx})$ and the spatial growth rate,  $\Gamma=-\Im(k_{sx})$, combining   the  unstable parts of the two  solutions of Eq. \eqref{eq:dispe2poly} as a function of the phase speed and of the wavevector amplitude, in both the kinetic (a,b) and fluid frameworks (c,d).
-The filamentation limit is recovered at $v_\phi=0$ and care has been taken to verify that both frameworks co\"incide, when $T_i\ll Z_iT_e$. Moreover, in both calculations, $\Re[k_{sx}(v_\phi=0)]$ is vanishing as expected from the filamentation instability. As $v_\phi$ increases, the forward Brillouin instability prevails and reaches its maximum, for the kinetic  mono-ion species case of Fig. \ref{fig:dispe}(a), around $(\vert k_s\vert/k_0, v_\phi/c_s) \simeq(0.03,1)$. Interestingly, only in the kinetic framework  the forward Brillouin spatial maximum  growth dominates the filamentation one, for the plasma parameters addressed here. In the fluid framework however both instability present a close  growth rate of $\sim 1.5\times 10^{-4} k_0$  with much  broader  spectrum than in the kinetic case.
+The filamentation limit is recovered at $v_\phi=0$ and care has been taken to verify that both frameworks co\"incide, when $T_i\ll Z_iT_e$. Moreover, in both calculations, $\Re[k_{sx}(v_\phi=0)]$ is vanishing as expected from the filamentation instability. As $v_\phi$ increases, the forward Brillouin instability prevails and reaches its maximum, for the kinetic  mono-ion species case of Fig. \ref{fig:dispe}(a), around $(\vert k_s\vert/k_0, v_\phi/c_s) \simeq(0.05,1)$. 
+%Interestingly, only in the kinetic framework  the forward Brillouin spatial maximum  growth dominates the filamentation one, for the plasma parameters addressed here. 
+\tc{
+In the fluid framework, a similar behavior is obtained, although with a slightly larger forward Brillouin spatial  growth maximum. }
 
-The kinetic calculations allow to consider multiple ion plasmas such as CH as illustrated in Fig. \ref{fig:dispeCH}. In the fluid framework, we are usually constrained to use the averaged-ion approximation, which gives qualitatively similar results than for Fig. \ref{fig:dispe}(c) as a broad spectrum is evidenced with no dominance of the Brillouin versus the filamentation growth. This contrasts with the kinetic calculations of Fig. \ref{fig:dispeCH}(a) where the FSBS is more unstable than the filamentation instability. Moreover the growth is peaked around $0.8c_s$ (here $c_s$ is calculated on the averaged ion parameters) which is the phase speed of the least-damped acoustic eigenmode, solution of the free-field electrostatic Maxwellian dispersion relation \cite[]{POF_Fried_71,POP_Williams_95}.
-Notably, the forward Brillouin growth rate is twice larger in the kinetic formalism compared to the fluid description. This substantial difference, visible in both the hydrogen  and  CH plasma, vanishes in the case of the filamentation instability where both frameworks predict similar growth rates.
+The kinetic calculations allow to consider multiple ion plasmas such as CH as illustrated in Fig. \ref{fig:dispeCH}. In the fluid framework, we are usually constrained to use the averaged-ion approximation, which gives qualitatively similar results than for Fig. \ref{fig:dispe}(c) as a broad spectrum is evidenced with  dominance of the Brillouin versus the filamentation growth. 
+%This contrasts with the kinetic calculations of Fig. \ref{fig:dispeCH}(a) where the FSBS is more unstable than the filamentation instability. 
+Moreover the growth is peaked around $0.8c_s$ (here $c_s$ is calculated on the averaged ion parameters) which is the phase speed of the least-damped acoustic eigenmode, solution of the free-field electrostatic Maxwellian dispersion relation \cite[]{POF_Fried_71,POP_Williams_95}.
+Notably, the forward Brillouin growth rate is \tc{ $\sim 25\%$ smaller} in the kinetic formalism compared to the fluid description. This substantial difference, visible in both the hydrogen  and  CH plasma, vanishes in the case of the filamentation instability where both frameworks predict similar growth rates.
 This driven ion acoustic wave ($\vert v_\phi\vert >0$) is able to  scatter the pump wave and modify its spatial spectrum. As evidenced in Figs. \ref{fig:dispe}(a,c) and \ref{fig:dispeCH}(a,c), we expect a broadening of the plane wave spatial spectrum  resulting in an effective  f-cone   angle  of $k_s/k_0\sim 0.03-0.05$, corresponding to $\sim 2-3^o$.  
 
 Spatial smoothing techniques are commonly known to restrain the role of some deleterious instabilities, such as the laser filamentation, during the propagation of energetic laser pulses  \cite[]{Kato_1984,NatPhys_Glenzer,POP_Berger_98b}. Indeed, as shown in this section, the most unstable wavelength, regarding the filamentation or the forward Brillouin instabilities, is of the order of ten   microns (for $\sim$ keV and 10\% critical density plasmas), thus larger than the typical  speckle size   of a few microns   usually used in energetic laser facilities.  
@@ -273,6 +291,7 @@ E_{\rm RPP}(t,\mathbf{r})  = \frac{E_0}{N} \sum_{n,\vert k_{\perp}\vert<k_m }^N 
  \begin{equation}\label{eq:d}
  \langle e^{i\Phi_{k_1}+i\Phi_{k_2}}\rangle=\delta(k_1-k_2) \, . 
  \end{equation}
+ \tc{The resulting  fields at the focal plane  are modulated in amplitude transversely to the main laser axis  \cite[]{Kato_1984}, leading to a hot spot probability distribution that scales as $\sqrt{I_s/I_0}\exp(-Is/I_0) $ \cite[]{POF_Rose_93}, (where $I_s$ and $I_0$ are the speckle and averaged intensity, respectively) and as expected from a random phase plates \cite[]{Garnier_1999}}.
 
 Following the procedure introduced in Sec. \ref{sec:plane}, the RPP electric field in Fourier space is
 \begin{align}
@@ -337,7 +356,9 @@ where $\mathcal{C}$ is the correlations   between  \mbox{$\exp(-i\Phi_{k_1}+i\Ph
 \begin{align}
   1= -\alpha_{k/f}(v_\phi)A_k \frac{\delta n_0}{n_c} \frac{\omega_0^2}{N}\sum_{ k_{1} }        \left[ \frac{1 }{D_-(k_{1})} +\frac{1}{D_+(k_{1})} \right] \, .\label{eq:disperpp} 
 \end{align}
-Provided the phase plate has a sufficient number of elements (\emph{i.e.} $N$ is large enough), we shall replace the discrete sum by a continuous one. To leading order 
+Provided the phase plate has a sufficient number of elements (\emph{i.e.} $N$ is large enough), we shall replace the discrete sum by a continuous one. 
+\tc{Although the neglect of  $1/D_+$ in the above equation is usual regarding the Brillouin parametric instabilities, both  $1/D_\pm$ are found here to be important for  quantitatively describing the forward Brillouin scatter. }
+To leading order 
 in  $\omega_s\ll\omega_0$, and making use of the pump wave dispersion relation, $\omega_0^2=\omega_{pe}^2+k_0^2c^2+k_1^2c^2$,
 \begin{equation}\label{eq:dpmk1}
 D_\pm(k_1) \simeq -\mathbf{k}_s^2c^2\pm 2(\omega_s\omega_0 - k_{sx}k_0 c^2-k_{sy} k_1 c^2) \, , 
@@ -397,9 +418,10 @@ Physically, the speckle typical size, $f_\sharp\lambda_0$, remains smaller than 
 For more moderate  $f_\sharp$-numbers, the propagation of a laser may  also remains filamentation-unstable, despite the use of random phase plates,  in  the case of a multi-ion species plasmas such as in Fig.   \ref{fig:dispeCHrpp}. 
 Although less filamentation unstable than in the plane wave case [see Figs. \ref{fig:dispeCH}(a,c) and \ref{fig:dispeCHrpp}(e)], the RPP beam has a finite kinetic growth rate maximized at  $\Gamma\sim 7\times 10^{-4}k_0 $  and $\vert k_s\vert \sim  10^{-2}k_0$. 
 Hence, the estimated  gain of $\sim 12$   for a millimeter of propagation (with a wavelength of $\sim 35 \,\rm \mu m$) indicates that keV-range plasmas may produce significant RPP-laser filamentation, at least in the multi-ion species case.
-Notably, another filamentation mode exists around the speckle size $\vert k_s\vert =2k_0/(2f_\sharp) = 0.125k_0$, albeit with a smaller growth rate $\Gamma\sim 2\times 10^{-4}k_0 $.
+Unfortunately, the use of random phase plates seems to completely stabilize the filamentation in the fluid framework [see dashed line, Fig. \ref{fig:dispeCHrpp}(e)], demonstrating that  hydrodynamic codes fail to capture correctly the laser filamentation in a multi-ion species plasma. \tc{The only difference between the two frameworks comes from the plasma response factor [Eqs. \eqref{eq:alphak}-\eqref{eq:alphaf}] which reads $\alpha_{f}(v_\phi=0)=0.62$ and $\alpha_{k}(v_\phi=0)=0.88$, thus demonstrating that low $Z_iT_e/T_i$ multi-ion species plasmas are more prone to hole boring than their often used fluid averaged-ion  approximate. } 
+Additionally, the kinetic instability characterized in Fig. \ref{fig:dispeCHrpp}(e)  is mainly thermal as \tc{ the growth rate vanishes} when   replacing  $A_k$ in Eq. \eqref{eq:dispefilam} by its collisionless value, $1/2$. 
 
-Unfortunately, the use of random phase plates seems to completely stabilize the filamentation in the fluid framework [see dashed line, Fig. \ref{fig:dispeCHrpp}(e)], demonstrating that  hydrodynamic codes fail to capture correctly the laser filamentation in a multi-ion species plasma. Additionally, the kinetic instability characterized in Fig. \ref{fig:dispeCHrpp}(e)  is mainly thermal as it is completely stabilized when   replacing  $A_k$ in Eq. \eqref{eq:dispefilam} by its collisionless value, $1/2$. 
+Notably, another filamentation mode exists around  $\vert k_s\vert \simeq 2k_0/(2f_\sharp) = 0.125k_0$, albeit with a smaller growth rate $\Gamma\sim 2\times 10^{-4}k_0 $. \tc{This feature corresponds to the speckle-scale filamentation and, as it is sub-dominant, seems to cast doubts on the validity of hot-spot power thresholds \cite[]{POF_Max_1976,POP_Williams_2006} regarding the large-wavelength thermally driven  filamentation growth evidenced in Fig.   \ref{fig:dispeCHrpp}(e).}
 
 \subsection{Comparison with proton radiographs of a RPP pulse propagating in a helium gaz jet}\label{sec:xp}
 \begin{figure}
@@ -416,15 +438,15 @@ Unfortunately, the use of random phase plates seems to completely stabilize the 
 \begin{tabular}{cc}
 (a) $T_e(t)$ and $I_0(t)$&
 (b) $\Gamma \times L$  \\
-\includegraphics[width=0.24\textwidth]{xpFuchs_te.eps}& 
-\includegraphics[width=0.24\textwidth]{xpFuchs.png}
+\includegraphics[width=0.245\textwidth]{xp_fuchs_te_new.eps}& 
+\includegraphics[width=0.24\textwidth]{xp_fuchs_new.eps}
 \end{tabular}
 \caption{ \label{fig:xpfuchs_th}  
 (a) Temporal evolution of the electron temperature 
 %from an Hydrodynamic simulation  \tc{with the code HERA} and 
-from the resolution of $(3/2)n_e d_tT_e=\nu_BI_02^{-t^2/\tau^2}/c$ with $\tau = 300\,\rm ps$  and $T_e(-1.5 \, \rm{ns})=10\,\rm eV$ (left axis, black).
+from the resolution of $(3/2)n_e d_tT_e=\nu_BI_02^{-t^2/\tau^2}/c$ with $\tau = 300\,\rm ps$  and $T_e(-1.5 \, \rm{ns})=30\,\rm eV$ (left axis, black).
 The intensity evolution is superimposed as a red line (right axis).
-(b) Filamentation growth rate corresponding to the unstable solution  of Eq. \eqref{eq:dispefilam} normalized to the plasma length  $L$  for $v_\phi=0$ and in the fluid framework [Eq. \eqref{eq:alphaf}] with $I_0=3.8\times 10^{13}\, \rm W/cm^2$, $2\pi/k_0=1\,\rm\mu m$, $f_\sharp=24$, $Z_i=2$, $A=4$, $n_e=10^{19} \,\rm cm^{-3}$,  $L=1\,\rm mm$ and  $Z_iT_e/T_i=5$. 
+(b) Filamentation growth rate corresponding to the unstable solution  of Eq. \eqref{eq:dispefilam} normalized to the plasma length  $L$  for $v_\phi=0$ and in the fluid framework [Eq. \eqref{eq:alphaf}] with $I_0=3.8\times 10^{13}\, \rm W/cm^2$, $2\pi/k_0=1\,\rm\mu m$, $f_\sharp=24$, $Z_i=2$, $A=4$, $n_e=10^{19} \,\rm cm^{-3}$,  $L=1\,\rm mm$ and  $Z_iT_e/T_i=\tc{5}$. 
 The growth rate maximum is superimposed as a  black line in the RPP case and as a dashed line in the plane wave case [Eq. \eqref{eq:dispe2poly}].
  }
 \end{figure}
@@ -441,11 +463,27 @@ Proton radiography of the interaction was performed using a laminar beam of prot
 To this end, the latter was focused (with a FWHM of $\sim 6$ microns) to a peak intensity of $4\times 10^{19}\, \rm W/cm^2$ on 10 microns thick Au foils positioned at $d=3.5$ mm away from the center of the gas jet. This produced  \cite{PRL_Snavely_2000} a beam of laminar protons having a broad energy spectrum extending here from 0 to 15 MeV. The protons originate from hydrogenated contaminants on the target surface. They were detected downstream, at $D=43.5$ mm from the gas jet, by a stack of radiochromic films (RCFs) \cite{Bolton_2014}  protected by a $14\, \rm \mu m$-thick Al range filter. The resulting magniﬁcation of the proton projection onto the RCFs was $M=(d+D)/d =13.1$. RCFs are preferentially sensitive to penetrating protons, which have a large specific energy-loss and produce a high contrast image. Since we used a stack of films, and since protons have a well-defined range in matter, that stack arrangement therefore allowed a coarse resolution in proton energy, each film corresponding to a range, and thus a particular proton energy (determined using the code SRIM \cite{Ziegler_2010}). 
 The spatial resolution of the proton radiography is given by the virtual source size which is $\sim 5$ microns \cite{PRL_Cowan_2004} and the temporal resolution is given by the time required by the protons to cross the interaction zone, i.e. $\sim 4$ ps for $3$ MeV protons. The different times shown in Fig. \ref{fig:xpfuchs_xp}(b) correspond to different shots. 
 
-An estimate of the plasma temperature evolution may be obtained easily in this low temperature and low density experiment ($T_e\lesssim 250 \,\rm eV$, $n_e/n_c=10^{-2}$) by neglecting the electron thermal diffusion and accounting only for the inverse Bremsstrahlung laser absorption calculated on the transversely averaged intensity (neglecting the speckle-scale intensity fluctuations). The resulting electron temperature evolution, \mbox{$(3/2)n_e d_tT_e=\nu_BI_02^{-t^2/\tau^2}/c$} (where $\nu_B\propto T_e^{-3/2}$ is  the bremsstrahlung laser absorption coefficient) has been resolved and is illustrated in Fig. \ref{fig:xpfuchs_th}(a), showing that  $T_e\lesssim 150\, \rm eV $ is obtained  before the pulse maximum intensity, \emph{i.e.} for $I\lesssim 3\times 10^{13}\, \rm W/cm^2$. 
+An estimate of the plasma temperature evolution may be obtained easily in this low temperature and low density experiment ($T_e\lesssim 250 \,\rm eV$, $n_e/n_c=10^{-2}$) by neglecting the electron thermal diffusion and accounting only for the inverse Bremsstrahlung laser absorption calculated on the transversely averaged intensity (neglecting the speckle-scale intensity fluctuations). The resulting electron temperature evolution, \mbox{$(3/2)n_e d_tT_e=\nu_BI_02^{-t^2/\tau^2}/c$} (where $\nu_B\propto T_e^{-3/2}$ is  the bremsstrahlung laser absorption coefficient) has been resolved and is illustrated in Fig. \ref{fig:xpfuchs_th}(a), showing that  $T_e\lesssim 150\, \rm eV $ is obtained  before the pulse maximum intensity, \emph{i.e.} for $I\lesssim 3\times 10^{13}\, \rm W/cm^2$.
+\tc{
+At $30\,\rm eV$, the helium plasma stands in the moderately  coupled plasma regime, hence, the Coulomb logarithm, $\Theta$, used to compute $\nu_B$ include the correction introduced in Ref. \cite[]{PRL_Baalrud_2013},
+\begin{align}
+\Theta &= \ln (1+0.7 \Lambda) \, , \nonumber\\
+\Lambda& = \frac{b_\mathrm{max}}{b_\mathrm{min}} \,, \nonumber\\
+b_\mathrm{max} &=\mathrm{min}\left[\mathrm{max}(\lambda_D,R_i),\sqrt{\frac{T_e}{m_e\omega_0^2}}\right]
+\, ,\nonumber\\
+b_\mathrm{min} &= \mathrm{min}\left[\mathrm{max}\left(\frac{Z_i q_e^2}{3T_e\epsilon_0},\frac{\hbar}{2\sqrt{3m_eT_e}}\right),R_i\right]
+\, , \label{eq:logcoul}
+\end{align}
+where $R_i$, $q_e$ and $\hbar$ are the averaged inter ion distance, the unsigned electron charge and reduced Planck constant, respectively. }
 The colormap of Fig. \ref{fig:xpfuchs_th}(b) illustrates the RPP filamentation spatial  growth normalized to the plasma length  as a function of   wavelength and  time, for the experimental parameters, intensity and electron temperature evolution discussed above [see Fig. \ref{fig:xpfuchs_th}(a)].
-Moreover, the RCF signal late-time evolution suggests a ratio  $Z_iT_e/T_i\simeq 4.5$ as discussed in appendix. Hence, the RPP growth rate maximum (black plain line) demonstrates that a reasonable gain is obtained,  $\Gamma L\gtrsim 3$, when $t\simeq -0.35\,\rm ns$, $I\sim  10^{13}\,\rm W/cm^2$ and  $T_e\lesssim 80\, \rm eV$.
+Moreover, the RCF signal late-time evolution suggests a ratio  \tc{$Z_iT_e/T_i\simeq 5$} as discussed in appendix. Hence, the RPP growth rate maximum (black plain line) demonstrates that a reasonable gain is obtained,  $\Gamma L\gtrsim 3$, when $t\gtrsim 0.4\,\rm ns$, $I\sim  10^{13}\,\rm W/cm^2$ and  $T_e\lesssim 150\, \rm eV$.
 As soon as $t>-0.2\, \rm ns$, the density fluctuations should cease growing as the gain drops below unity  and subsequently be damped by the Landau process over a few ($\gamma_0c_s2\pi/\lambda_s)^{-1} \sim 1\, \rm ns$.
-This suggests that the filamentation grows and saturates rapidly before the most energetic part of the beam reaches the center of the gaz jet, leading to  density fluctuations of wavelength   $\lambda_F \sim 60 \,\rm\mu m$ and measurable for $t>0\,\rm ns$. The resulting electrostatic field is able to deflect the probing protons   causing the proton dose modulation illustrated in Fig. \ref{fig:xpfuchs_xp}(b). 
+This suggests that the filamentation grows and saturates rapidly before the most energetic part of the beam reaches the center of the gaz jet, leading to  density fluctuations of wavelength   $\lambda_F \sim 60 \,\rm\mu m$ and measurable for $t>0\,\rm ns$.
+\tc{ 
+Note that the distance travelled by a sound wave,  $\int_0^t c_s(\tau)d\tau$, 
+ [where the sound speed depends on time though $T_e(t)$, see Fig. \ref{fig:xpfuchs_th}(a)] is illustrated as a red plain line in Fig. \ref{fig:xpfuchs_th}(b) and demonstrates that the filamentation asymptotic regime with  $\lambda_F \sim 60 \,\rm\mu m$ is reachable for $t>-0.4 \,\rm ns$. 
+ }
+The resulting electrostatic field is able to deflect the probing protons   causing the proton dose modulation illustrated in Fig. \ref{fig:xpfuchs_xp}(b). 
 The estimated experimental wavelength of $\simeq 77 \,\rm\mu m$, obtained by maximizing the Fourier transformed experimental signal over a central lineout, fairly agrees with our RPP dispersion relations (see Fig. \ref{fig:xpfuchs_ap}(a)  in appendix). 
 Note that the textbook plane wave filamentation dispersion relations [Eq. \eqref{eq:dispe2poly} for $v_\phi=0$] predict a  smaller dominant wavelength of $ \lambda_F\lesssim  35\, \rm\mu m$ (when $T_e\lesssim80\, \rm eV$), illustrated as a dashed black line in Fig. \ref{fig:xpfuchs_th}(b). A large disagreement of the  RPP and plane wave most unstable wavelengths is obtained when  $\lambda_s> f_\sharp\lambda_0=24\,\rm\mu m$ [in Fig. \ref{fig:xpfuchs_th}(b), as discussed in Sec. \ref{sec:filam}], demonstrating the significance of the random phase plate dispersion relations regarding realistic conditions \cite[]{Berger_98}.
 
@@ -453,6 +491,7 @@ Note that the textbook plane wave filamentation dispersion relations [Eq. \eqref
 Figures \ref{fig:disperpp} and \ref{fig:dispeCHrpp} show also significant differences compared to the propagation of a plane wave  regarding the forward Brillouin scattering.  
 Either fluid or kinetic, for single or multiple ion species, 
 the spatial growth rate appears much more peaked around $v_\phi\simeq c_s$ [or $v_\phi\simeq 0.8c_s$ for  the kinetic CH case, Fig. \ref{fig:dispeCHrpp}(a)] and the propagation of the RPP pulse more unstable  [$\Gamma/k_0\sim 0.1$, Fig.  \ref{fig:disperpp}(a) and Fig.  \ref{fig:dispeCHrpp}(a)]  than for a plane wave case  [$\Gamma/k_0\simeq 2 \times 10^{-4}$, Fig.  \ref{fig:dispe}(a)].
+\tc{Note that setting the thermal correction $A_k$ to its collisionless value $1/2$  slightly deceases the FSBS growth rate maximum in both plane and RPP wave case without modifying their ordering.  }
 Therefore degrading the pump spatial coherence decreases or potentially suppresses the filamentation instability, however, at the expense of favoring the  spatial growth of the forward Brillouin instability.
 The forward scattering of a RPP beam ensues from the superposition of all the pulse spectral contributions, the final superposition of acoustic waves may be constructive or destructive depending on the wavevector direction and amplitude relative to the plasma resonance [characterized by $\alpha_{k/f}$, Eqs. \eqref{eq:alphak}-\eqref{eq:alphaf}]. 
 As a consequence, the spatial growth consists in a succession of peaks aligned around $v_\phi\simeq c_s$ and spread from $\vert k_s\vert=0$ to a fraction of $k_0$. The separation of these peaks [a few $ 10^{-2}k_0$ for Fig. \ref{fig:disperpp}(a) and $\sim 10^{-1}k_0$ for \ref{fig:dispeCHrpp}(a)], depends on the propagation properties of the driven acoustic waves and the plasma response such as the width of the resonance. 
@@ -469,7 +508,7 @@ leading to the increase of the $f_\sharp$-cone
 angle from $1/(2f_\sharp)=3.6^o$ to $\sim 21^o$.
 Hence, a substantial modification of the beam 
 properties  could appear during its propagation thus affecting the energy deposition.
-Regarding the CH-plasma, one may notice that unlike for the single ion case, the peaks are located around $v_\phi=0.8c_s$, implying a lower acoustic frequency (than for the single ion species case or than the fluid calculations) and therefore less red-shifting of the scattered wave.
+Regarding the CH-plasma, one may notice that unlike for the single ion case, the peaks are located around $v_\phi=0.8c_s$ \tc{(which corresponds to the least damp acoustic eigenmode, \cite[]{POF_Fried_71,POP_Williams_95}, see Fig. \ref{fig:dispeCH} and the corresponding discussion)}, implying a lower acoustic frequency (than for the single ion species case or than the fluid calculations) and therefore less red-shifting of the scattered wave.
 
 The two and six unstable peaks shown  in  Figs. \ref{fig:dispeCHrpp}(a) and (c) demonstrate that the density fluctuation should present discrete  growing modes corresponding to $\sim (16^o,21^o)$ and $ \sim (8^o,11^o,14^o,17^o,19^o,21^o)$ light scattering angles, respectively.
 Although a similar maximum growth rate is predicted by the kinetic and fluid calculations, different scattering directions are obtained. The fluid framework  suffers, in some cases, from an ill-forecast of the scatter spectral properties. 
@@ -531,7 +570,7 @@ over a time range during which the system does not evolve much.
 For the parameters addressed here, the laser propagation seems to  reach a steady state in a few $10\,\rm ps$, hence the temporal Fourier transform has been performed for $t\in [25,135]\,\rm ps$ and  $[40,150]\,\rm ps$ for  $T_i=300$ and $100\, \rm eV$, respectively. 
 Hence, Figs.  \ref{fig:comphydro}(c,f) illustrate for both cases  the effective spatial growth rate  in the plane $(\omega,k_y)$ indicating stability around $\omega=0$, \emph{i.e.} no filamentation instability, consistently with the theoretical predictions and with Figs. \ref{fig:comphydro}(a,d). 
 Interestingly, the growth rate along the acoustic mode, marked by the black plain line $\omega=k_yc_s$ in Fig. \ref{fig:comphydro}(c), exhibits a succession of peaks for $k_y>0.2k_0$ consistently with our theory [Fig. \ref{fig:disperpp}(c)]. Their separation of $\sim 0.05 k_0$ correctly agrees with Fig. \ref{fig:disperpp}(c). Moreover, they extend from $k_y \sim  0.2k_0$  to $0.5k_0$, therefore exceeding the initial transverse spectral width of $k_0/2f_\sharp  \simeq 0.062k_0$ and  explaining the large cone angle   observed for $x>500\,\rm\mu m$ in Fig. \ref{fig:comphydro}(a) of $\sim 0.2k_0$ (\emph{i.e.} $11^o$).
-When $T_i=100\, \rm eV$, the theoretical predictions [Fig. \ref{fig:comphydro}(e)] yields only one unstable peak located between $\sim 0.2k_0$ and $\sim 0.5k_0$. Likewise, a single large cluster (between  $k_y/k_0\sim0.2$ and $0.5$) may be recognized  in Fig. \ref{fig:comphydro}(f) with a dominant feature around $k_y\sim 0.4k_0$, as predicted by our dispersion relations.
+When $T_i=100\, \rm eV$, the theoretical predictions [Fig. \ref{fig:comphydro}(e)] yields only one unstable peak located between $\sim 0.2k_0$ and $\sim 0.5k_0$ \tc{with $v_\phi=c_s$}. Likewise, a single large cluster (between  $k_y/k_0\sim 0.2$ and $0.5$) may be recognized  in Fig. \ref{fig:comphydro}(f) \tc{lying on the acoustic trace, $\omega = k_yc_s$ (as black line)} with a dominant feature around $k_y\sim 0.4k_0$, as predicted by our dispersion relations.
 
 %\begin{figure}
 %\begin{tabular}{cc}
@@ -575,8 +614,18 @@ For illustration purposes, we will model the spatial growth rate spectrum by a s
 where $(\mathbf{k}_c,\Gamma_{c})$ are the location and amplitude of the peaks. 
 Hence,
 the solution of Eq. \eqref{eq:parax}, using the pump fields of Eq. \eqref{eq:erppf},  allows to compute the perturbed fields, $\delta E$, as a function of the phase plate random variables $\Phi_k$. 
+\tc{
+Using, $\delta E(x=0)=0$, Eqs. \eqref{eq:erppf}, \eqref{eq:parax} and \eqref{eq:dnparax} lead to
+\begin{align}
+ \delta E(\mathbf{k}_d)=-\frac{i}{2\pi}\frac{k_0n_0}{2n_c} \frac{\delta n_0}{n_0}\frac{E_0}{2N} e^{-\frac{i\mathbf{k}_d^2 x}{2k_0}}   \sum_{\mathbf{k}_c,\mathbf{k}_\perp}\nonumber \\ 
+ \left( 
+ e^{i\Phi_{\mathbf{k}_\perp}}\delta( \mathbf{k}_d -\mathbf{k}_c-\mathbf{k}_\perp)
+ +e^{-i\Phi_{\mathbf{k}_\perp}}\delta( \mathbf{k}_d -\mathbf{k}_c+\mathbf{k}_\perp)
+ \right)\nonumber \\ 
+ \times \frac{e^{\Gamma_cx+\frac{i\mathbf{k}_d^2 x}{2k_0} }-1}{\Gamma_c+\frac{i\mathbf{k}_d^2 }{2k_0}}  \, .
+\end{align}
 Finally, the corresponding averaged perturbed intensity [using Eq. \eqref{eq:d}] defined as 
-$ \delta I \propto\langle  E_0 \otimes \delta E\rangle $ reads
+$ \delta I \propto\langle  E_0 \otimes \delta E\rangle $ has  a   piecewise contribution} which  reads
 \begin{equation}
 \delta I (\mathbf{k}_d)\propto \sum_{\mathbf{k}_c} \frac{e^{\Gamma_c x} -e^{-i( \mathbf{k}_d +\mathbf{k}_c)^2x/8k_0} }{ ( \mathbf{k}_d +\mathbf{k}_c)^2 - 8ik_0\Gamma_c  } \mathrm{H}(2k_m - \vert  \mathbf{k}_d-\mathbf{k}_c \vert) \, , \label{eq:dI}
 \end{equation}
@@ -602,6 +651,9 @@ Except for a single ion species plasma for moderate to large  $Z_iT_e/T_i$-ratio
 This brings to light the significance of the kinetic damping of driven acoustic waves able to  affect the scattered spectrum.
 
 During the calculation of the spatial growth of the forward instabilities, we neglected the transverse spatial laser envelope and its variations due to diffraction. Hence, our results should remain valid in realistic conditions for large-enough and flat-enough focal spots and for long enough focus. Moreover,  our analytical results are averaged over the random phase plate elements thus failing to capture the corresponding statistical fluctuations. 
+\tc{
+We also neglected most Coulomb collisions effects on the propagation of acoustic waves, which, in the kinetic multi ion species case might be of importance  \cite[]{POP_Berger_2005b}. 
+}
 
 The use of SSD, which  causes the so-called speckles to vanish and change position during the interaction, is known  experimentally to significantly stabilize the pump propagation \cite[]{Berger_1995}. The framework developed in this publication allows to include the spectral dispersion in the dispersion relations of importance for LMJ or NIF like facilities  and is left for future work. Moreover, 
 combining our spatial growth rates with our recent Monte-Carlo algorithm~\cite[]{POP_Debayle_2019}  opens the way to the description of the RPP forward Brillouin scattering   in the vastly used ray tracing schemes, possibly greatly improving their predictions regarding high-energy laser experiments. For this end, the impact of a flow on the growth of the FSBS or the filamentation instability must be examined. 
@@ -617,27 +669,27 @@ The data that support the findings of this study are available from the correspo
 \appendix
 \section*{Appendix: constraining $Z_iT_e/T_i$ in the experiment of Sec. \ref{sec:xp}}
 \label{sec:ztesti}
-\setcounter{equation}{0} 
-\renewcommand{\theequation}{A\arabic{equation}}
-\setcounter{figure}{0} 
-\renewcommand{\thefigure}{A\arabic{figure}}
+%\setcounter{equation}{0} 
+%\renewcommand{\theequation}{A\arabic{equation}}
+%\setcounter{figure}{0} 
+%\renewcommand{\thefigure}{A\arabic{figure}}
 \begin{figure}
 \begin{tabular}{cc}
 (a) FFT of transverse lineout&
 (b) Peak evolution\\
 \includegraphics[width=0.24\textwidth]{fucshsfft.png}& 
-\includegraphics[width=0.22\textwidth]{fuchsztesti.eps}
+\includegraphics[width=0.22\textwidth]{fuchsztesti_new.eps}
 \end{tabular}
 \caption{ \label{fig:xpfuchs_ap}  
 (a) Fourier transform of a central lineout across RCF similar as those shown in Fig. \ref{fig:xpfuchs_xp}(b), unravelling a peak at the dominant wavelength. The two curves correspond to two different shots, taken at different times, as indicated in inset.
-(b) Temporal evolution of the peak amplitude (blue circles) observed in the Fourier transform identified by the yellow arrow in panel (a). Each point correspond to a different shot, where the time of the proton probing was changed with respect to the interaction laser propagating in the plasma [see examples of probing at two different times in  Fig. \ref{fig:xpfuchs_xp}(b)]. A decreasing exponential slope,  $\exp(-\nu t)$, is plotted for a Landau damping frequency given by $\nu=\gamma_0c_s2\pi/[77\,\rm\mu m]$ with the use of  Eq. \eqref{eq:g0} for a He$^{2+}$ plasma with $T_e=300\,\rm eV$ [see Fig. \ref{fig:xpfuchs_th}(a)] and various $Z_iT_e/T_i$.
+(b) Temporal evolution of the peak amplitude (blue circles) observed in the Fourier transform identified by the yellow arrow in panel (a). Each point correspond to a different shot, where the time of the proton probing was changed with respect to the interaction laser propagating in the plasma [see examples of probing at two different times in  Fig. \ref{fig:xpfuchs_xp}(b)]. A decreasing exponential slope,  $\exp(-\nu t)$, is plotted for a Landau damping frequency given by $\nu=\gamma_0c_s2\pi/[77\,\rm\mu m]$ with the use of  Eq. \eqref{eq:g0} for a He$^{2+}$ plasma with \tc{$T_e=310\,\rm eV$} [see Fig. \ref{fig:xpfuchs_th}(a)] and various $Z_iT_e/T_i$.
 }
 \end{figure}
 Figure \ref{fig:xpfuchs_ap}(a) shows the Fourier transform of a RCF transverse lineout pointing out to a peak around a spatial frequency of  $2\pi/\lambda_s\sim 0.08\, \rm \mu m^{-1}$, \emph{i.e.} a wavelength of $\lambda_s \simeq 77\, \rm \mu m$.
 Moreover, the comparison of the peak position at different times (blue plain line at $t=0\,\rm ns$ and red dashed line $t=0.5\,\rm ns$) demonstrates that the dominant wavelength remains mostly unchanged.  In that condition, and noting that the probing proton deflection results from an electric field, the RCF dose modulation level depends mainly on the electron pressure fluctuations amplitude \cite[]{RSI_protograhyb}.
 Hence, the peak temporal evolution of the experimental signal [blue circles in Fig. \ref{fig:xpfuchs_ap}(b)] correlates with the damping of the lingering acoustic waves, previously triggered by the filamentation instability over the first nanosecond of  the interaction beam.
 In this low density configuration ($n_e/n_c\simeq10^{-2}$), 
-we may therefore directly compare this decrease with an exponential slope, $\delta n_e \propto \exp(-\nu t)$ where $\nu = \gamma_0 c_s 2\pi/\lambda_s$ is the Landau damping acoustic rate. The calculations for a He$^{2+}$ plasma with $T_e=300\, \rm eV$ [as suggested by  Fig. \ref{fig:xpfuchs_th}(a)] and  for three different values of $Z_iT_e/T_i$ illustrated in  Fig. \ref{fig:xpfuchs_ap}(b) demonstrate that $Z_iT_e/T_i=5$ reproduces correctly the experimental data. The experimental point at $t=0.5\,\rm ns$ is more consitent with the red curve which may suggest a value of  $Z_iT_e/T_i $ larger than $5$ earlier. Because of the available experimental data and the weak dependence of the filamentation growth rate on $Z_iT_e/T_i$, choice has been made to set the ratio to  $5$ for the analysis of Sec. \ref{sec:xp}.
+we may therefore directly compare this decrease with an exponential slope, $\delta n_e \propto \exp(-\nu t)$ where $\nu = \gamma_0 c_s 2\pi/\lambda_s$ is the Landau damping acoustic rate. The calculations for a He$^{2+}$ plasma with \tc{$T_e=310\, \rm eV$} [as suggested by  Fig. \ref{fig:xpfuchs_th}(a)] and  for three different values of $Z_iT_e/T_i$ illustrated in  Fig. \ref{fig:xpfuchs_ap}(b) demonstrate that $Z_iT_e/T_i=5$ reproduces correctly the experimental data. The experimental point at $t=0.5\,\rm ns$ is more consitent with the red curve which may suggest a value of  $Z_iT_e/T_i $ larger than $5$ earlier. Because of the available experimental data and the weak dependence of the filamentation growth rate on $Z_iT_e/T_i$, choice has been made to set the ratio to  $5$ for the analysis of Sec. \ref{sec:xp}.
 
 \bibliography{biblio}
 \end{document}
